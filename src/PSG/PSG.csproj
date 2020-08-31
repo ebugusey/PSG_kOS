@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -29,22 +29,19 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\..\KSPDev\Managed\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\..\KSPDev\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+      <HintPath>..\..\refs\Assembly-CSharp.dll</HintPath>
     </Reference>
     <Reference Include="kOS">
-      <HintPath>..\..\..\Загрузки\kOS-v1.2.1.0\GameData\kOS\Plugins\kOS.dll</HintPath>
+      <HintPath>..\..\refs\kOS.dll</HintPath>
     </Reference>
     <Reference Include="kOS.Safe">
-      <HintPath>..\..\..\Загрузки\kOS-v1.2.1.0\GameData\kOS\Plugins\kOS.Safe.dll</HintPath>
+      <HintPath>..\..\refs\kOS.Safe.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine">
-      <HintPath>..\..\..\KSPDev\Managed\UnityEngine.dll</HintPath>
+      <HintPath>..\..\refs\UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\..\KSPDev\Managed\UnityEngine.CoreModule.dll</HintPath>
+      <HintPath>..\..\refs\UnityEngine.CoreModule.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net" />
@@ -52,24 +49,6 @@
     <Reference Include="System.Net.Http.Formatting" />
     <Reference Include="System.Net.Http.WebRequest" />
     <Reference Include="System.Web.Http" />
-    <Reference Include="Assembly-CSharp">
-      <HintPath>..\..\Managed\Assembly-CSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>..\..\Managed\Assembly-CSharp-firstpass.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine">
-      <HintPath>..\..\Managed\UnityEngine.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.CoreModule">
-      <HintPath>..\..\Managed\UnityEngine.CoreModule.dll</HintPath>
-    </Reference>
-    <Reference Include="kOS">
-      <HintPath>..\..\kOS-v1.2.1.0\GameData\kOS\Plugins\kOS.dll</HintPath>
-    </Reference>
-    <Reference Include="kOS.Safe">
-      <HintPath>..\..\kOS-v1.2.1.0\GameData\kOS\Plugins\kOS.Safe.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Addon.cs" />
