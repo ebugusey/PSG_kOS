@@ -1,13 +1,16 @@
 using System;
+using System.Linq;
 using Nuke.Common;
 using Nuke.Common.Execution;
 using Nuke.Common.IO;
 using Nuke.Common.ProjectModel;
 using Nuke.Common.Tools.GitVersion;
 using Nuke.Common.Tools.MSBuild;
+using Nuke.Common.Tools.NUnit;
 using Nuke.Common.Utilities.Collections;
 using static Nuke.Common.IO.FileSystemTasks;
 using static Nuke.Common.Tools.MSBuild.MSBuildTasks;
+using static Nuke.Common.Tools.NUnit.NUnitTasks;
 
 [CheckBuildProjectConfigurations]
 [UnsetVisualStudioEnvironmentVariables]
@@ -67,6 +70,17 @@ partial class Build : NukeBuild
                 .SetInformationalVersion(GitVersion.InformationalVersion)
                 .SetMaxCpuCount(Environment.ProcessorCount)
                 .SetNodeReuse(IsLocalBuild));
+        });
+
+    Target Test => _ => _
+        .DependsOn(Compile)
+        .Executes(() =>
+        {
+            var tests = TestsDirectory.GlobFiles(@$"**/bin/{Configuration}/**/*.Tests.dll");
+
+            NUnit3(s => s
+                .AddInputFiles(tests.Select(x => x.ToString()))
+                .SetConfiguration(Configuration));
         });
 
     Target Rebuild => _ => _
