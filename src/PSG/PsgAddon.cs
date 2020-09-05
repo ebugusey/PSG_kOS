@@ -11,6 +11,7 @@ using kOS.Safe.Encapsulation.Suffixes;
 using kOS.Safe.Screen;
 using kOS.Safe.Utilities;
 using kOS.Suffixed;
+using PSG.Configuration;
 using UnityEngine;
 using ILogger = kOS.Safe.ILogger;
 
@@ -44,26 +45,10 @@ namespace PSG
 
         private StringValue Observe(StringValue body, ListValue instrumentPlusObserveType,ScalarValue exposure)
         {
-            var url = "";
+            var config = AddonConfig.ReadFrom("config.txt");
+            var url = config.Url;
+            var opts = config.RequestOpts;
             var filename = body+"_"+instrumentPlusObserveType[0]+"_"+instrumentPlusObserveType[1]+".txt";
-            var opts = "";
-
-            var lines = File.ReadAllLines("config.txt", Encoding.UTF8);
-
-            foreach(var line in lines)
-            {
-                var parameters = line.Split('|');
-
-                if (parameters[0] == "url")
-                {
-                    url = parameters[1];
-                }
-
-                if (parameters[0] == "params")
-                {
-                    opts = parameters[1];
-                }
-            }
 
             if (File.Exists(filename))
             {

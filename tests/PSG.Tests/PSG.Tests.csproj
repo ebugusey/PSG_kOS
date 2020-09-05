@@ -18,4 +18,10 @@
     <ProjectReference Include="..\..\src\PSG\PSG.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Configuration\config.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

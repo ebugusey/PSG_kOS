@@ -1,0 +1,3 @@
+url|https://psg.gsfc.nasa.gov/api.php
+file|config_psg.txt
+params|type=trn&file=
