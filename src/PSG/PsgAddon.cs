@@ -1,19 +1,18 @@
-﻿using kOS.Safe.Encapsulation;
-using kOS.Safe.Encapsulation.Suffixes;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
 using System.Text.RegularExpressions;
 using kOS;
 using kOS.AddOns;
-using kOS.Safe;
-using ILogger = kOS.Safe.ILogger;
+using kOS.Safe.Encapsulation;
+using kOS.Safe.Encapsulation.Suffixes;
 using kOS.Safe.Screen;
 using kOS.Safe.Utilities;
 using kOS.Suffixed;
+using UnityEngine;
+using ILogger = kOS.Safe.ILogger;
 
 namespace PSG
 {
