@@ -7,20 +7,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Text.RegularExpressions;
+using kOS;
+using kOS.AddOns;
 using kOS.Safe;
 using ILogger = kOS.Safe.ILogger;
 using kOS.Safe.Screen;
+using kOS.Safe.Utilities;
+using kOS.Suffixed;
 
-namespace kOS.AddOns.PSGAddon
+namespace PSG
 {
     [kOSAddon("PSG")]
-    [Safe.Utilities.KOSNomenclature("PSGAddon")]
-    public class Addon : Suffixed.Addon
+    [KOSNomenclature("PSGAddon")]
+    public class PsgAddon : Addon
     {
         private readonly ILogger _logger;
         private readonly IScreenBuffer _screen;
 
-        public Addon(SharedObjects shared) : base(shared)
+        public PsgAddon(SharedObjects shared) : base(shared)
         {
             InitializeSuffixies();
             _logger = shared.Logger;
