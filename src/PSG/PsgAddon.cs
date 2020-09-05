@@ -45,15 +45,15 @@ namespace PSG
 
         private StringValue Observe(StringValue body, ListValue instrumentPlusObserveType,ScalarValue exposure)
         {
-            string url = "";
-            string filename = body+"_"+instrumentPlusObserveType[0]+"_"+instrumentPlusObserveType[1]+".txt";
-            string opts = "";
+            var url = "";
+            var filename = body+"_"+instrumentPlusObserveType[0]+"_"+instrumentPlusObserveType[1]+".txt";
+            var opts = "";
 
             var lines = File.ReadAllLines("config.txt", Encoding.UTF8);
 
-            foreach(string line in lines)
+            foreach(var line in lines)
             {
-                string[] parameters = line.Split('|');
+                var parameters = line.Split('|');
 
                 if (parameters[0] == "url")
                 {
@@ -84,10 +84,10 @@ namespace PSG
                     ["PS4892k"] = "TRAPPIST1h",
                 };
 
-                List<CelestialBody> bodies = FlightGlobals.Bodies;
+                var bodies = FlightGlobals.Bodies;
 
-                Boolean bodyExist = false;
-                CelestialBody targetBody = bodies[0];
+                var bodyExist = false;
+                var targetBody = bodies[0];
 
                 foreach (var currentBody in bodies)
                 {
@@ -101,12 +101,12 @@ namespace PSG
                 if (bodyExist)
                 {
                     Vector3 heading =
-                    targetBody.GetTransform().position -
-                    FlightGlobals.ActiveVessel.GetTransform().position;
+                        targetBody.GetTransform().position -
+                        FlightGlobals.ActiveVessel.GetTransform().position;
 
-                    double distance = Math.Round(heading.magnitude / 1000.0);
+                    var distance = Math.Round(heading.magnitude / 1000.0);
 
-                    double distanceAu = distance / 149600000000;
+                    var distanceAu = distance / 149600000000;
 
                     if (distance < 100000000)
                     {
@@ -131,7 +131,7 @@ namespace PSG
 
                     using (var streamWriter = new StreamWriter(request.GetRequestStream()))
                     {
-                        string req = opts + WebUtility.UrlEncode(configPsg);
+                        var req = opts + WebUtility.UrlEncode(configPsg);
                         streamWriter.Write(req);
                     }
 
@@ -139,7 +139,7 @@ namespace PSG
                     _logger.Log($"post body:\n{WebUtility.UrlEncode(configPsg)}");
 
                     var httpResponse = request.GetResponse() as HttpWebResponse;
-                    using (Stream responseStream = httpResponse.GetResponseStream())
+                    using (var responseStream = httpResponse.GetResponseStream())
                     using (var reader = new StreamReader(responseStream, Encoding.UTF8))
                     {
                         _logger.Log("got response from PSG");
